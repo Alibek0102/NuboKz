@@ -13,4 +13,5 @@ struct AppColors {
     static var lightSilver = UIColor(hexString: "#F7F7F7")
     static var appBlue = UIColor(hexString: "#0478FF")
     static var textGray = UIColor(hexString: "#000000").withAlphaComponent(0.5)
+    static var errorRed = UIColor(hexString: "#d65e6a")
 }

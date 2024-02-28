@@ -76,6 +76,16 @@
 		0161AE312B8C6380000DD7BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AE302B8C6380000DD7BB /* User.swift */; };
 		0161AE332B8C6413000DD7BB /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AE322B8C6413000DD7BB /* ConfirmPasswordViewController.swift */; };
 		0161AE352B8C6551000DD7BB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AE342B8C6551000DD7BB /* PasswordTextField.swift */; };
+		0190010A2B8FA449006648CC /* FirebaseLessonsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019001092B8FA449006648CC /* FirebaseLessonsManager.swift */; };
+		0190010C2B8FA613006648CC /* AvailableSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190010B2B8FA613006648CC /* AvailableSubject.swift */; };
+		0190010E2B8FC788006648CC /* FirebaseStoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */; };
+		019001102B8FC85C006648CC /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190010F2B8FC85C006648CC /* Story.swift */; };
+		019001122B8FD4BC006648CC /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019001112B8FD4BC006648CC /* Section.swift */; };
+		01C271D92B8E6CAA0053A209 /* EmailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271D82B8E6CAA0053A209 /* EmailPresenter.swift */; };
+		01C271DB2B8E74910053A209 /* PasswordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271DA2B8E74910053A209 /* PasswordPresenter.swift */; };
+		01C271DD2B8E79F70053A209 /* SendUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271DC2B8E79F70053A209 /* SendUserPresenter.swift */; };
+		01C271DF2B8E8ACB0053A209 /* SignedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271DE2B8E8ACB0053A209 /* SignedUser.swift */; };
+		01C271E22B8E8C960053A209 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +130,16 @@
 		0161AE302B8C6380000DD7BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0161AE322B8C6413000DD7BB /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
 		0161AE342B8C6551000DD7BB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		019001092B8FA449006648CC /* FirebaseLessonsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLessonsManager.swift; sourceTree = "<group>"; };
+		0190010B2B8FA613006648CC /* AvailableSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableSubject.swift; sourceTree = "<group>"; };
+		0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoriesManager.swift; sourceTree = "<group>"; };
+		0190010F2B8FC85C006648CC /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		019001112B8FD4BC006648CC /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		01C271D82B8E6CAA0053A209 /* EmailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailPresenter.swift; sourceTree = "<group>"; };
+		01C271DA2B8E74910053A209 /* PasswordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordPresenter.swift; sourceTree = "<group>"; };
+		01C271DC2B8E79F70053A209 /* SendUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserPresenter.swift; sourceTree = "<group>"; };
+		01C271DE2B8E8ACB0053A209 /* SignedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedUser.swift; sourceTree = "<group>"; };
+		01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +228,7 @@
 		0146F2A62B8E4A1D0056B669 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
+				01C271D72B8E6C920053A209 /* Authentification */,
 				0146F2E02B8E50600056B669 /* Lessons */,
 			);
 			path = Presenters;
@@ -226,6 +247,8 @@
 			children = (
 				0146F2E42B8E54B30056B669 /* FirebaseManager.swift */,
 				0146F2E82B8E59B60056B669 /* NetworkError.swift */,
+				019001092B8FA449006648CC /* FirebaseLessonsManager.swift */,
+				0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -249,6 +272,7 @@
 		0161ADEB2B8C4B4A000DD7BB /* NuboKz */ = {
 			isa = PBXGroup;
 			children = (
+				01C271E02B8E8C500053A209 /* Storage */,
 				0146F2E32B8E54990056B669 /* Network */,
 				0146F2A62B8E4A1D0056B669 /* Presenters */,
 				0161AE2F2B8C6370000DD7BB /* Models */,
@@ -390,8 +414,30 @@
 			children = (
 				0161AE302B8C6380000DD7BB /* User.swift */,
 				0146F2E62B8E58220056B669 /* Subject.swift */,
+				01C271DE2B8E8ACB0053A209 /* SignedUser.swift */,
+				0190010B2B8FA613006648CC /* AvailableSubject.swift */,
+				0190010F2B8FC85C006648CC /* Story.swift */,
+				019001112B8FD4BC006648CC /* Section.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		01C271D72B8E6C920053A209 /* Authentification */ = {
+			isa = PBXGroup;
+			children = (
+				01C271D82B8E6CAA0053A209 /* EmailPresenter.swift */,
+				01C271DA2B8E74910053A209 /* PasswordPresenter.swift */,
+				01C271DC2B8E79F70053A209 /* SendUserPresenter.swift */,
+			);
+			path = Authentification;
+			sourceTree = "<group>";
+		};
+		01C271E02B8E8C500053A209 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -509,15 +555,22 @@
 			files = (
 				0161AE2E2B8C60A5000DD7BB /* Fonts.swift in Sources */,
 				0161AE122B8C4F6C000DD7BB /* ConfirmEmailViewController.swift in Sources */,
+				019001102B8FC85C006648CC /* Story.swift in Sources */,
+				019001122B8FD4BC006648CC /* Section.swift in Sources */,
+				0190010A2B8FA449006648CC /* FirebaseLessonsManager.swift in Sources */,
 				0161AE022B8C4CF3000DD7BB /* AppCoordinator.swift in Sources */,
+				0190010E2B8FC788006648CC /* FirebaseStoriesManager.swift in Sources */,
 				0161AE232B8C5E3D000DD7BB /* AppGradient.swift in Sources */,
+				01C271DD2B8E79F70053A209 /* SendUserPresenter.swift in Sources */,
 				0146F2E22B8E50770056B669 /* LessonsPresenter.swift in Sources */,
 				0146F2E92B8E59B60056B669 /* NetworkError.swift in Sources */,
 				0161AE062B8C4D1A000DD7BB /* MainCoordinator.swift in Sources */,
 				0161ADF12B8C4B4A000DD7BB /* ViewController.swift in Sources */,
 				010079F82B8CAE8E00F6F1E1 /* ProfileViewController.swift in Sources */,
+				01C271DB2B8E74910053A209 /* PasswordPresenter.swift in Sources */,
 				0161AE332B8C6413000DD7BB /* ConfirmPasswordViewController.swift in Sources */,
 				0161AE212B8C56D0000DD7BB /* CustomButton.swift in Sources */,
+				01C271D92B8E6CAA0053A209 /* EmailPresenter.swift in Sources */,
 				010079EF2B8CAA1F00F6F1E1 /* TabBarModule.swift in Sources */,
 				0146F2A52B8E40B70056B669 /* LessonsTableViewCell.swift in Sources */,
 				0146F2A32B8D8BF60056B669 /* LessonsCollectionViewCell.swift in Sources */,
@@ -532,9 +585,12 @@
 				0161ADED2B8C4B4A000DD7BB /* AppDelegate.swift in Sources */,
 				010079ED2B8CA9F600F6F1E1 /* TabBarController.swift in Sources */,
 				0161AE042B8C4D00000DD7BB /* AuthentificationCoordinator.swift in Sources */,
+				01C271DF2B8E8ACB0053A209 /* SignedUser.swift in Sources */,
 				0161AE1A2B8C51E2000DD7BB /* UIColor+extension.swift in Sources */,
 				0161AE1F2B8C539B000DD7BB /* EmailTextField.swift in Sources */,
+				01C271E22B8E8C960053A209 /* UserDefaultsManager.swift in Sources */,
 				0161AE1C2B8C520D000DD7BB /* AppColors.swift in Sources */,
+				0190010C2B8FA613006648CC /* AvailableSubject.swift in Sources */,
 				0146F2A02B8D87220056B669 /* ListIds.swift in Sources */,
 				0161ADEF2B8C4B4A000DD7BB /* SceneDelegate.swift in Sources */,
 				0161AE0A2B8C4D54000DD7BB /* Coordinator.swift in Sources */,

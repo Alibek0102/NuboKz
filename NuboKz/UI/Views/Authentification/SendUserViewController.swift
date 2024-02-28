@@ -8,9 +8,21 @@
 import UIKit
 import Lottie
 
-class SendUserViewController: UIViewController {
+class SendUserViewController: UIViewController, SendUserPresenterView {
     
     var animationView = LottieAnimationView()
+    
+    var finishFlow: boolClosure?
+    
+    var notFoundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = .userNotFound
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    var presenter: SendUserPresenterProtocol?
     
     var user: User?
     
@@ -29,6 +41,11 @@ class SendUserViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         
         setupLoading()
+        signIn()
+    }
+    
+    func signIn() {
+        presenter?.signIn(user: self.user)
     }
     
     func setupLoading() {
@@ -51,5 +68,41 @@ class SendUserViewController: UIViewController {
             loadingLabel.topAnchor.constraint(equalTo: animationView.bottomAnchor, constant: 20),
             loadingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+    
+    func setupErrorView() {
+        view.willRemoveSubview(animationView)
+        
+        loadingLabel.text = "Пользователь не найден"
+        
+        view.addSubview(notFoundImageView)
+        
+        NSLayoutConstraint.activate([
+            notFoundImageView.heightAnchor.constraint(equalToConstant: 200),
+            notFoundImageView.widthAnchor.constraint(equalToConstant: 200),
+            notFoundImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            notFoundImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.willRemoveSubview(animationView)
+    }
+    
+    func signInResult(result: SignInResult) {
+        switch result {
+        case .success:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.finishFlow?(true)
+            }
+        case .notFound:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.setupErrorView()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.finishFlow?(false)
+                }
+            }
+        }
     }
 }

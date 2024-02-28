@@ -9,14 +9,55 @@ import UIKit
 
 class LessonsCollectionViewCell: UICollectionViewCell {
     
+    var story: Story? {
+        didSet {
+            guard let story = story else { return }
+            
+            let url = URL(string: story.image)
+            
+            let queue = DispatchQueue.global(qos: .utility)
+            
+            activityIndicator.isHidden = false
+            activityIndicator.startAnimating()
+            
+            queue.async {
+                guard let url = url, let data = try? Data(contentsOf: url) else { return }
+                
+                DispatchQueue.main.async {
+                    self.imageView.image = UIImage(data: data)
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
+                }
+            }
+        }
+    }
     
+    var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.tintColor = AppColors.textGray
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        activityIndicator.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        activityIndicator.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return activityIndicator
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         layer.cornerRadius = 20
         
         addActiveLayer()
+        setupImage()
     }
+    
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 20 - 5
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     func addActiveLayer () {
         layer.sublayers?.removeAll()
@@ -29,7 +70,23 @@ class LessonsCollectionViewCell: UICollectionViewCell {
         
         shapeLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 105, height: 125), cornerRadius: 20).cgPath
         
-        layer.addSublayer(shapeLayer)
+        layer.insertSublayer(shapeLayer, at: 0)
+    }
+    
+    func setupImage() {
+        addSubview(imageView)
+        
+        imageView.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            imageView.leftAnchor.constraint(equalTo: leftAnchor, constant: 5),
+            imageView.rightAnchor.constraint(equalTo: rightAnchor, constant: -5),
+            imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            
+            activityIndicator.centerXAnchor.constraint(equalTo: imageView.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
+        ])
     }
     
     func createLayer() {

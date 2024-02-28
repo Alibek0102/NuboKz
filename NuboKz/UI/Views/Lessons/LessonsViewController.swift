@@ -7,9 +7,13 @@
 
 import UIKit
 
-class LessonsViewController: UITableViewController {
+class LessonsViewController: UITableViewController, LessonsPresenterView {
     
     var presenter: LessonsPresenterProtocol!
+    
+    var subjects: [Subject] = []
+    var stories: [Story] = []
+    var sections: [Section] = []
     
     let rightView: UIStackView = {
         let rightView = UIStackView()
@@ -62,13 +66,19 @@ class LessonsViewController: UITableViewController {
     }()
     
     let lessonsSegmentedController: UISegmentedControl = {
-        let segmentedController = UISegmentedControl(items: ["Программирование", "Информатика"])
+        let segmentedController = UISegmentedControl()
         segmentedController.selectedSegmentIndex = 0
         
         segmentedController.translatesAutoresizingMaskIntoConstraints = false
         segmentedController.heightAnchor.constraint(equalToConstant: 35).isActive = true
         return segmentedController
     }()
+    
+    let myRefreshControl: UIRefreshControl = UIRefreshControl()
+    
+    @objc func updatePageWithRefresh(sender: UIRefreshControl) {
+        self.presenter.getSubjects()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +94,9 @@ class LessonsViewController: UITableViewController {
         tableView.register(LessonsTableViewCell.self, forCellReuseIdentifier: ListIds.lessonItem.getId())
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+        myRefreshControl.addTarget(self, action: #selector(updatePageWithRefresh(sender:)), for: .valueChanged)
+        lessonsSegmentedController.addTarget(self, action: #selector(updateSectionsBySubject(sender:)), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -94,6 +107,7 @@ class LessonsViewController: UITableViewController {
     
     private func presenterManager() {
         presenter.getSubjects()
+        presenter.getStories()
     }
     
     private func setRightHeaderlement() {
@@ -127,12 +141,65 @@ class LessonsViewController: UITableViewController {
         ])
     }
     
+    func setSubjects(subjects: [Subject]) {
+        DispatchQueue.main.async {
+            self.myRefreshControl.endRefreshing()
+            
+            self.subjects = subjects
+            self.lessonsSegmentedController.removeAllSegments()
+            
+            for (index, subject) in subjects.enumerated() {
+                self.lessonsSegmentedController.insertSegment(withTitle: subject.name, at: index, animated: true)
+            }
+            
+            self.lessonsSegmentedController.selectedSegmentIndex = 0
+            
+            if subjects.count != 0 {
+                self.presenter.getSections(subject: self.subjects[0])
+            }
+        }
+    }
+    
+    func setStories(stories: [Story]) {
+        DispatchQueue.main.async {
+            self.stories = stories
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func setSections(sections: [Section]) {
+        DispatchQueue.main.async {
+            self.sections = sections
+            self.tableView.reloadData()
+        }
+    }
+    
+    @objc func updateSectionsBySubject(sender: UISegmentedControl) {
+        let selectedIndex = sender.selectedSegmentIndex
+        
+        let subjectByIndex = subjects[selectedIndex]
+        
+        self.presenter.getSections(subject: subjectByIndex)
+    }
+    
+    private func toKztTimeZone(date: Date) -> String {
+        let kztTimeZone = TimeZone(identifier: "Asia/Almaty")
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = kztTimeZone
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        
+        return dateFormatter.string(from: date)
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return self.sections.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListIds.lessonItem.getId(), for: indexPath) as! LessonsTableViewCell
+        cell.lessonName.text = self.sections[indexPath.row].name
+        cell.logoLabel.text = String(self.sections[indexPath.row].name.first!)
+        cell.dateLabel.text = self.toKztTimeZone(date: self.sections[indexPath.row].createdAt)
         return cell
     }
     
@@ -144,17 +211,14 @@ class LessonsViewController: UITableViewController {
 extension LessonsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.stories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListIds.stories.getId(), for: indexPath) as! LessonsCollectionViewCell
+        
+        cell.story = stories[indexPath.row]
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! LessonsCollectionViewCell
-        cell.createLayer()
     }
 }
 

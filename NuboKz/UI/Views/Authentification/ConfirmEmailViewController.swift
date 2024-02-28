@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Toast
 
-class ConfirmEmailViewController: ViewController, AuthCoordinating {
+class ConfirmEmailViewController: ViewController, AuthCoordinating, EmailPresenterView, UITextFieldDelegate {
     
     var finishFlow: stringClosure?
+    
+    var presenter: EmailPresenterProtocol?
     
     let emailTextField = EmailTextField()
     let confirmButton = CustomButton(title: "Продолжить")
@@ -42,6 +45,8 @@ class ConfirmEmailViewController: ViewController, AuthCoordinating {
         setupAppTitle()
         
         confirmButton.addTarget(self, action: #selector(finish), for: .touchUpInside)
+        
+        self.setupToast()
     }
     
     private func setupEmailViewController() {
@@ -80,7 +85,35 @@ class ConfirmEmailViewController: ViewController, AuthCoordinating {
     }
     
     @objc func finish() {
-        self.finishFlow?(emailTextField.text ?? "")
+        presenter?.checkEmail(email: emailTextField.text ?? "")
+        
+        emailTextField.resignFirstResponder()
+    }
+    
+    func resultAfterCheck(result: EmailCheck) {
+        switch result {
+        case .emptyEmail(let result):
+            self.showToastMessage(text: result)
+        case .uncorrectEmail(let result):
+            self.showToastMessage(text: result)
+        case .success:
+            self.finishFlow?(emailTextField.text ?? "")
+        }
+    }
+    
+    func showToastMessage(text: String) {
+        self.view.makeToast(text, duration: 3, position: .bottom)
+    }
+    
+    func setupToast() {
+        var style = ToastStyle()
+        style.cornerRadius = 15
+        style.backgroundColor = AppColors.errorRed
+        style.horizontalPadding = 20
+        style.messageFont = Fonts.fontCreator(font: .medium, size: 16)
+        style.fadeDuration = 0.5
+        
+        ToastManager.shared.style = style
     }
 
 }

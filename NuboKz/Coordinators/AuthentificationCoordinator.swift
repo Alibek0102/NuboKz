@@ -45,6 +45,14 @@ class AuthentificationCoordinator: Coordinator {
     func showUserAuthFlow() {
         let viewController = module.createSendUserViewController()
         viewController.user = self.user
+        
+        viewController.finishFlow = { result in
+            if(result == true) {
+                self.finishFlow?(true)
+            } else {
+                self.showConfirmEmailViewController()
+            }
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

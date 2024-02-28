@@ -30,17 +30,23 @@ class LessonsTableViewCell: UITableViewCell {
         return logo
     }()
     
-    let lessonName: UILabel = {
+    let logoLabel: UILabel = {
         let label = UILabel()
-        label.text = "Типы данных"
+        label.font = Fonts.fontCreator(font: .bold, size: 28)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var lessonName: UILabel = {
+        let label = UILabel()
         label.font = Fonts.fontCreator(font: .medium, size: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    let dateLabel: UILabel = {
+    var dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "26.01.2024"
         label.font = Fonts.fontCreator(font: .regular, size: 12)
         label.textColor = AppColors.textGray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +74,7 @@ class LessonsTableViewCell: UITableViewCell {
         
         lessonLogo.backgroundColor = UIColor(hexString: colors[randomInRange(min: 0, max: colors.count - 1)])
         
+        lessonLogo.addSubview(logoLabel)
         
         NSLayoutConstraint.activate([
             lessonItem.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
@@ -81,7 +88,10 @@ class LessonsTableViewCell: UITableViewCell {
             lessonLogo.centerYAnchor.constraint(equalTo: lessonItem.centerYAnchor),
             
             stackView.centerYAnchor.constraint(equalTo: lessonItem.centerYAnchor),
-            stackView.leftAnchor.constraint(equalTo: lessonLogo.rightAnchor, constant: 17)
+            stackView.leftAnchor.constraint(equalTo: lessonLogo.rightAnchor, constant: 17),
+            
+            logoLabel.centerXAnchor.constraint(equalTo: lessonLogo.centerXAnchor),
+            logoLabel.centerYAnchor.constraint(equalTo: lessonLogo.centerYAnchor)
             
         ])
     }

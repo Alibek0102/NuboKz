@@ -6,17 +6,15 @@
 //
 
 import UIKit
+import Toast
 
-class ConfirmPasswordViewController: UIViewController, AuthCoordinating {
+class ConfirmPasswordViewController: UIViewController, AuthCoordinating, PasswordPresenterView {
+    
     var finishFlow: stringClosure?
+    var presenter: PasswordPresenterProtocol?
     
     let passwordTextField = PasswordTextField()
     let confirmButton = CustomButton(title: "Продолжить")
-    
-    @objc func finish() {
-        self.finishFlow?(passwordTextField.text ?? "")
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +25,7 @@ class ConfirmPasswordViewController: UIViewController, AuthCoordinating {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         setupPasswordViewController()
-        
+        setupToast()
         confirmButton.addTarget(self, action: #selector(finish), for: .touchUpInside)
     }
     
@@ -44,5 +42,38 @@ class ConfirmPasswordViewController: UIViewController, AuthCoordinating {
             confirmButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 22),
             confirmButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -22)
         ])
+    }
+    
+    @objc func finish() {
+        self.presenter?.checkPassword(password: passwordTextField.text ?? "")
+        passwordTextField.resignFirstResponder()
+    }
+    
+    func resultAfterCheck(result: PasswordCheck) {
+        switch result {
+        case .empty(let result):
+            self.showToastMessage(text: result)
+        case .minPassword(let result):
+            self.showToastMessage(text: result)
+        case .passwordWithSpace(let result):
+            self.showToastMessage(text: result)
+        case .success:
+            self.finishFlow?(passwordTextField.text ?? "")
+        }
+    }
+    
+    func showToastMessage(text: String) {
+        self.view.makeToast(text, duration: 3, position: .bottom)
+    }
+    
+    func setupToast() {
+        var style = ToastStyle()
+        style.cornerRadius = 15
+        style.backgroundColor = AppColors.errorRed
+        style.horizontalPadding = 20
+        style.messageFont = Fonts.fontCreator(font: .medium, size: 16)
+        style.fadeDuration = 0.5
+        
+        ToastManager.shared.style = style
     }
 }

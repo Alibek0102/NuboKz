@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class FirebaseManager {
     static let shared = FirebaseManager()
@@ -15,28 +16,38 @@ class FirebaseManager {
     
     private init() {}
     
-    func getAllSubjects(completionHandler: @escaping (Result<[Subject], NetworkError>) -> ()) {
-        let collectionName = "subjects"
-        let collectionRef = db.collection(collectionName)
-        
-        collectionRef.getDocuments { snapshot, error in
-            if let error = error {
-                completionHandler(.failure(.networkError(text: "Плохой интернет")))
+    func signIn(user: User, completionHandler: @escaping (Result<Bool, AuthError>) -> ()){
+        Auth.auth().signIn(withEmail: user.email ?? "", password: user.password ?? "") { result, error in
+            if error != nil {
+                completionHandler(.failure(.userNotFound(text: "Пользователь не найден")))
                 return
             }
             
-            var allSubjects: [Subject] = []
+            guard let userId = result?.user.uid else {
+                completionHandler(.failure(.userNotFound(text: "Пользователь не найден")))
+                return
+            }
             
-            for document in snapshot!.documents {
-                guard let subject = Subject(data: document.data()) else {
-                    completionHandler(.failure(.incorrectData(text: "При получений данных произошла ошибка")))
+            let collectionName = "students"
+            let collRef = self.db.collection(collectionName)
+            
+            collRef.whereField("student_id", isEqualTo: String(userId)).getDocuments { snapshot, error in
+                if error != nil {
+                    completionHandler(.failure(.userNotFound(text: "Пользователь не найден")))
                     return
                 }
                 
-                allSubjects.append(subject)
+                var signedUser: SignedUser?
+                
+                for document in snapshot!.documents {
+                    signedUser = SignedUser(data: document.data())
+                }
+                
+                UserDefaultsManager.shared.setUserName(value: signedUser?.fullName ?? "")
+                UserDefaultsManager.shared.setUserId(value: signedUser?.studentId ?? "")
+                
+                completionHandler(.success(true))
             }
-            
-            completionHandler(.success(allSubjects))
         }
     }
 }

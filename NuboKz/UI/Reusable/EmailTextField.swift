@@ -15,7 +15,7 @@ class EmailTextField: UITextField {
         placeholder = "alibek.yesetov@mail.ru"
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = AppColors.lightSilver
-        
+        tag = 10
         heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
