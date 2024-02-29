@@ -40,6 +40,38 @@ class TasksTableViewCell: UITableViewCell {
         return item
     }()
     
+    let bonusView: UIStackView = {
+        let bonusView = UIStackView()
+        bonusView.backgroundColor = AppColors.lightSilver
+        bonusView.layer.cornerRadius = 15
+        bonusView.axis = .horizontal
+        bonusView.spacing = 4
+        bonusView.isLayoutMarginsRelativeArrangement = true
+        bonusView.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        bonusView.translatesAutoresizingMaskIntoConstraints = false
+        bonusView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return bonusView
+    }()
+    
+    var bonusLabel: UILabel = {
+        let label = UILabel()
+        label.text = "50"
+        label.font = Fonts.fontCreator(font: .bold, size: 14)
+        label.textColor = AppColors.textGray
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    var nCoinImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = .nCoin
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        return imageView
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupItem()
@@ -61,7 +93,10 @@ class TasksTableViewCell: UITableViewCell {
         }()
         
         taskItem.addSubview(stackView)
+        taskItem.addSubview(bonusView)
         
+        bonusView.addArrangedSubview(bonusLabel)
+        bonusView.addArrangedSubview(nCoinImageView)
         
         NSLayoutConstraint.activate([
             taskItem.topAnchor.constraint(equalTo: topAnchor, constant: 8),
@@ -70,7 +105,10 @@ class TasksTableViewCell: UITableViewCell {
             taskItem.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             
             stackView.centerYAnchor.constraint(equalTo: taskItem.centerYAnchor),
-            stackView.leftAnchor.constraint(equalTo: taskItem.leftAnchor, constant: 16)
+            stackView.leftAnchor.constraint(equalTo: taskItem.leftAnchor, constant: 16),
+            
+            bonusView.centerYAnchor.constraint(equalTo: taskItem.centerYAnchor),
+            bonusView.rightAnchor.constraint(equalTo: taskItem.rightAnchor, constant: -16),
         ])
     }
     
