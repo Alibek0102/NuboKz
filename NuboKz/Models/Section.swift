@@ -10,9 +10,11 @@ import UIKit
 struct Section {
     var name: String
     var createdAt: Date
+    var sectionId: String
     
-    init(name: String, createdAt: Date) {
+    init(name: String, createdAt: Date, sectionId: String) {
         self.name = name
         self.createdAt = createdAt
+        self.sectionId = sectionId
     }
 }

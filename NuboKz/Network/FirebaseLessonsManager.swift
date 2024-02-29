@@ -88,12 +88,39 @@ class FirebaseLessonsManager {
                 let firebaseTimestamp: Timestamp = data["created_at"] as! Timestamp
                 let date = firebaseTimestamp.dateValue()
                 
-                let section = Section(name: data["name"] as! String, createdAt: date)
+                let section = Section(name: data["name"] as! String, createdAt: date, sectionId: data["section_id"] as! String)
                 
                 sections.append(section)
             }
             
             completionHandler(.success(sections))
+        }
+    }
+    
+    func getTasksBySectionId(sectionId: String?, comletionHandler: @escaping(Result<[Task], NetworkError>) -> ()){
+        let collectionName = "tasks"
+        let collectionRef = db.collection(collectionName)
+        
+        guard let sectionId = sectionId else {
+            comletionHandler(.failure(.incorrectData(text: "Ошибка при получений Section Id")))
+            return
+        }
+        
+        collectionRef.whereField("section_id", isEqualTo: sectionId).getDocuments { snapshot, error in
+            if error != nil {
+                comletionHandler(.failure(.incorrectData(text: "Ошибка при получений данных")))
+                return
+            }
+            
+            var tasks: [Task] = []
+            
+            for document in snapshot!.documents {
+                if let data = Task(data: document.data()) {
+                    tasks.append(data)
+                }
+            }
+            
+            comletionHandler(.success(tasks))
         }
     }
 }

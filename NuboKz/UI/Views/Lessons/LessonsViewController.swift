@@ -15,6 +15,8 @@ class LessonsViewController: UITableViewController, LessonsPresenterView {
     var stories: [Story] = []
     var sections: [Section] = []
     
+    private let module = HomeModule()
+    
     let rightView: UIStackView = {
         let rightView = UIStackView()
         rightView.axis = .horizontal
@@ -205,6 +207,13 @@ class LessonsViewController: UITableViewController, LessonsPresenterView {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 93
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = module.tasksViewController()
+        let section = sections[indexPath.row]
+        viewController.section = section
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

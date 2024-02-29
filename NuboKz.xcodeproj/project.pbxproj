@@ -52,6 +52,9 @@
 		0146F2F12B8E5FC10056B669 /* SendUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0146F2F02B8E5FC10056B669 /* SendUserViewController.swift */; };
 		0146F2F42B8E62AA0056B669 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 0146F2F32B8E62AA0056B669 /* Lottie */; };
 		0146F2F62B8E63CD0056B669 /* student.json in Resources */ = {isa = PBXBuildFile; fileRef = 0146F2F52B8E63CD0056B669 /* student.json */; };
+		0156EA1A2B900541000C205A /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156EA192B900541000C205A /* TasksViewController.swift */; };
+		0156EA1C2B900625000C205A /* HomeModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156EA1B2B900625000C205A /* HomeModule.swift */; };
+		0156EA212B900924000C205A /* TasksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0156EA202B900924000C205A /* TasksTableViewCell.swift */; };
 		0161ADED2B8C4B4A000DD7BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161ADEC2B8C4B4A000DD7BB /* AppDelegate.swift */; };
 		0161ADEF2B8C4B4A000DD7BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161ADEE2B8C4B4A000DD7BB /* SceneDelegate.swift */; };
 		0161ADF12B8C4B4A000DD7BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161ADF02B8C4B4A000DD7BB /* ViewController.swift */; };
@@ -76,6 +79,8 @@
 		0161AE312B8C6380000DD7BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AE302B8C6380000DD7BB /* User.swift */; };
 		0161AE332B8C6413000DD7BB /* ConfirmPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AE322B8C6413000DD7BB /* ConfirmPasswordViewController.swift */; };
 		0161AE352B8C6551000DD7BB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AE342B8C6551000DD7BB /* PasswordTextField.swift */; };
+		017CD4642B90566F0045AD43 /* TasksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4632B90566F0045AD43 /* TasksPresenter.swift */; };
+		017CD4662B9058C70045AD43 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4652B9058C70045AD43 /* Task.swift */; };
 		0190010A2B8FA449006648CC /* FirebaseLessonsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019001092B8FA449006648CC /* FirebaseLessonsManager.swift */; };
 		0190010C2B8FA613006648CC /* AvailableSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190010B2B8FA613006648CC /* AvailableSubject.swift */; };
 		0190010E2B8FC788006648CC /* FirebaseStoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */; };
@@ -104,6 +109,9 @@
 		0146F2E82B8E59B60056B669 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		0146F2F02B8E5FC10056B669 /* SendUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserViewController.swift; sourceTree = "<group>"; };
 		0146F2F52B8E63CD0056B669 /* student.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = student.json; sourceTree = "<group>"; };
+		0156EA192B900541000C205A /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		0156EA1B2B900625000C205A /* HomeModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModule.swift; sourceTree = "<group>"; };
+		0156EA202B900924000C205A /* TasksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewCell.swift; sourceTree = "<group>"; };
 		0161ADE92B8C4B4A000DD7BB /* NuboKz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NuboKz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0161ADEC2B8C4B4A000DD7BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0161ADEE2B8C4B4A000DD7BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +138,8 @@
 		0161AE302B8C6380000DD7BB /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0161AE322B8C6413000DD7BB /* ConfirmPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPasswordViewController.swift; sourceTree = "<group>"; };
 		0161AE342B8C6551000DD7BB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		017CD4632B90566F0045AD43 /* TasksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenter.swift; sourceTree = "<group>"; };
+		017CD4652B9058C70045AD43 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		019001092B8FA449006648CC /* FirebaseLessonsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLessonsManager.swift; sourceTree = "<group>"; };
 		0190010B2B8FA613006648CC /* AvailableSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableSubject.swift; sourceTree = "<group>"; };
 		0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoriesManager.swift; sourceTree = "<group>"; };
@@ -238,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				0146F2E12B8E50770056B669 /* LessonsPresenter.swift */,
+				017CD4632B90566F0045AD43 /* TasksPresenter.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -251,6 +262,23 @@
 				0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		0156EA182B900528000C205A /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				0156EA1F2B900915000C205A /* Cell */,
+				0156EA192B900541000C205A /* TasksViewController.swift */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		0156EA1F2B900915000C205A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0156EA202B900924000C205A /* TasksTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0161ADE02B8C4B4A000DD7BB = {
@@ -326,6 +354,7 @@
 		0161AE0E2B8C4F36000DD7BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0156EA182B900528000C205A /* Tasks */,
 				010079F22B8CAC1800F6F1E1 /* Profile */,
 				010079F12B8CAC1200F6F1E1 /* Gifts */,
 				010079F02B8CAB2F00F6F1E1 /* Lessons */,
@@ -350,6 +379,7 @@
 			children = (
 				0161AE142B8C4FA3000DD7BB /* AuthModule.swift */,
 				010079EE2B8CAA1F00F6F1E1 /* TabBarModule.swift */,
+				0156EA1B2B900625000C205A /* HomeModule.swift */,
 			);
 			path = Factories;
 			sourceTree = "<group>";
@@ -418,6 +448,7 @@
 				0190010B2B8FA613006648CC /* AvailableSubject.swift */,
 				0190010F2B8FC85C006648CC /* Story.swift */,
 				019001112B8FD4BC006648CC /* Section.swift */,
+				017CD4652B9058C70045AD43 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -568,16 +599,21 @@
 				0161ADF12B8C4B4A000DD7BB /* ViewController.swift in Sources */,
 				010079F82B8CAE8E00F6F1E1 /* ProfileViewController.swift in Sources */,
 				01C271DB2B8E74910053A209 /* PasswordPresenter.swift in Sources */,
+				017CD4642B90566F0045AD43 /* TasksPresenter.swift in Sources */,
 				0161AE332B8C6413000DD7BB /* ConfirmPasswordViewController.swift in Sources */,
 				0161AE212B8C56D0000DD7BB /* CustomButton.swift in Sources */,
+				0156EA212B900924000C205A /* TasksTableViewCell.swift in Sources */,
 				01C271D92B8E6CAA0053A209 /* EmailPresenter.swift in Sources */,
 				010079EF2B8CAA1F00F6F1E1 /* TabBarModule.swift in Sources */,
 				0146F2A52B8E40B70056B669 /* LessonsTableViewCell.swift in Sources */,
 				0146F2A32B8D8BF60056B669 /* LessonsCollectionViewCell.swift in Sources */,
+				0156EA1A2B900541000C205A /* TasksViewController.swift in Sources */,
 				0161AE352B8C6551000DD7BB /* PasswordTextField.swift in Sources */,
 				0161AE312B8C6380000DD7BB /* User.swift in Sources */,
+				017CD4662B9058C70045AD43 /* Task.swift in Sources */,
 				0161AE0C2B8C4DB1000DD7BB /* Types.swift in Sources */,
 				0146F2E72B8E58220056B669 /* Subject.swift in Sources */,
+				0156EA1C2B900625000C205A /* HomeModule.swift in Sources */,
 				010079F42B8CAC4D00F6F1E1 /* LessonsViewController.swift in Sources */,
 				010079F62B8CAE7500F6F1E1 /* GiftsViewController.swift in Sources */,
 				0161AE152B8C4FA3000DD7BB /* AuthModule.swift in Sources */,
