@@ -31,5 +31,4 @@ class TabBarModule {
         viewController.tabBarItem.image = image
         return viewController
     }
-    
 }

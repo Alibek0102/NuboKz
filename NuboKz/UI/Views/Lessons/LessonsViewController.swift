@@ -7,9 +7,18 @@
 
 import UIKit
 
+enum EventType {
+    case description(id: String)
+}
+
+protocol LessonsViewControllerDelegate {
+    func eventPlay(event: EventType)
+}
+
 class LessonsViewController: UITableViewController, LessonsPresenterView {
     
     var presenter: LessonsPresenterProtocol!
+    var openDescription: stringClosure?
     
     var subjects: [Subject] = []
     var stories: [Story] = []
@@ -211,6 +220,7 @@ class LessonsViewController: UITableViewController, LessonsPresenterView {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = module.tasksViewController()
+        viewController.delegate = self
         let section = sections[indexPath.row]
         viewController.section = section
         navigationController?.pushViewController(viewController, animated: true)
@@ -231,3 +241,11 @@ extension LessonsViewController: UICollectionViewDataSource, UICollectionViewDel
     }
 }
 
+extension LessonsViewController: LessonsViewControllerDelegate {
+    func eventPlay(event: EventType) {
+        switch event {
+        case .description(let id):
+            openDescription?(id)
+        }
+    }
+}

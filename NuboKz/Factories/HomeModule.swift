@@ -17,4 +17,10 @@ class HomeModule {
         return viewController
     }
     
+    func taskDescriptionViewController() -> TaskDescriptionViewController {
+        let viewController = TaskDescriptionViewController()
+        let presenter = TaskDescriptionPresenter(viewController: viewController)
+        viewController.presenter = presenter
+        return viewController
+    }
 }

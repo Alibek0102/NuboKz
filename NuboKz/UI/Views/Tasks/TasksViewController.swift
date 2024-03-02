@@ -17,6 +17,8 @@ class TasksViewController: UITableViewController, TasksPresenterView {
     
     var section: Section?
     
+    var delegate: LessonsViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -47,11 +49,18 @@ class TasksViewController: UITableViewController, TasksPresenterView {
         let cell = tableView.dequeueReusableCell(withIdentifier: tasksId, for: indexPath) as! TasksTableViewCell
         cell.taskNameLabel.text = self.tasks[indexPath.row].name
         cell.taskLevelLabel.text = "Уровень: \(self.tasks[indexPath.row].level)"
+        cell.indexPath = indexPath
+        cell.bonusLabel.text = "\(self.tasks[indexPath.row].bonus)"
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = self.tasks[indexPath.row]
+        delegate?.eventPlay(event: .description(id: task.taskId))
     }
     
 }

@@ -123,4 +123,36 @@ class FirebaseLessonsManager {
             comletionHandler(.success(tasks))
         }
     }
+    
+    func getTaskDescription(taskId: String?, completionHandler: @escaping (Result<TaskDescription, NetworkError>) -> ()) {
+        guard let taskId = taskId else {
+            completionHandler(.failure(.incorrectData(text: "Ошибка при получений данных")))
+            return
+        }
+        
+        let collectionName = "taskDescription"
+        let collectionRef = db.collection(collectionName)
+        
+        collectionRef.whereField("task_id", isEqualTo: taskId).getDocuments { snapshot, error in
+            if error != nil {
+                completionHandler(.failure(.incorrectData(text: "Ошибка при получений данных")))
+                return
+            }
+            
+            if snapshot!.documents.count == 0 {
+                completionHandler(.failure(.incorrectData(text: "Description отсутствует")))
+                return
+            }
+            
+            let data = snapshot!.documents[0].data()
+            
+            let taskDescription = TaskDescription(data: data)
+            
+            if let taskDescription = taskDescription {
+                completionHandler(.success(taskDescription))
+            } else {
+                completionHandler(.failure(.incorrectData(text: "Description отсутствует")))
+            }
+        }
+    }
 }

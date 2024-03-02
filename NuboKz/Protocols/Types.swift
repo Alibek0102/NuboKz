@@ -7,5 +7,15 @@
 
 import Foundation
 
+enum MainCoordinatorEvents {
+    case showDescription(taskId: String?)
+}
+
+enum MissionCoordinatorEvents {
+    case missionsViewController
+}
+
 typealias boolClosure = (Bool) -> ()
 typealias stringClosure = (String) -> ()
+typealias performMainCoordinatorEvent = (MainCoordinatorEvents) -> ()
+typealias performMissionCoordinatorEvents = (MissionCoordinatorEvents) -> ()

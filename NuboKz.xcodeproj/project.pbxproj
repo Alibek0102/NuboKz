@@ -81,6 +81,11 @@
 		0161AE352B8C6551000DD7BB /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0161AE342B8C6551000DD7BB /* PasswordTextField.swift */; };
 		017CD4642B90566F0045AD43 /* TasksPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4632B90566F0045AD43 /* TasksPresenter.swift */; };
 		017CD4662B9058C70045AD43 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4652B9058C70045AD43 /* Task.swift */; };
+		017CD4692B9071220045AD43 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 017CD4682B9071220045AD43 /* PanModal */; };
+		017CD4722B9210100045AD43 /* TaskDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4712B9210100045AD43 /* TaskDescriptionViewController.swift */; };
+		017CD4742B92105E0045AD43 /* TaskDescriptionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4732B92105E0045AD43 /* TaskDescriptionPresenter.swift */; };
+		017CD4762B9220730045AD43 /* TaskDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4752B9220730045AD43 /* TaskDescription.swift */; };
+		017CD4782B9232BF0045AD43 /* ImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017CD4772B9232BF0045AD43 /* ImageGradient.swift */; };
 		0190010A2B8FA449006648CC /* FirebaseLessonsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019001092B8FA449006648CC /* FirebaseLessonsManager.swift */; };
 		0190010C2B8FA613006648CC /* AvailableSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190010B2B8FA613006648CC /* AvailableSubject.swift */; };
 		0190010E2B8FC788006648CC /* FirebaseStoriesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */; };
@@ -91,6 +96,9 @@
 		01C271DD2B8E79F70053A209 /* SendUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271DC2B8E79F70053A209 /* SendUserPresenter.swift */; };
 		01C271DF2B8E8ACB0053A209 /* SignedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271DE2B8E8ACB0053A209 /* SignedUser.swift */; };
 		01C271E22B8E8C960053A209 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */; };
+		01E6F61E2B9349510081EE90 /* MissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F61D2B9349510081EE90 /* MissionCoordinator.swift */; };
+		01E6F6212B934FFB0081EE90 /* MissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */; };
+		01E6F6242B9371490081EE90 /* MissionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6232B9371490081EE90 /* MissionsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +148,10 @@
 		0161AE342B8C6551000DD7BB /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		017CD4632B90566F0045AD43 /* TasksPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksPresenter.swift; sourceTree = "<group>"; };
 		017CD4652B9058C70045AD43 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		017CD4712B9210100045AD43 /* TaskDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionViewController.swift; sourceTree = "<group>"; };
+		017CD4732B92105E0045AD43 /* TaskDescriptionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionPresenter.swift; sourceTree = "<group>"; };
+		017CD4752B9220730045AD43 /* TaskDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescription.swift; sourceTree = "<group>"; };
+		017CD4772B9232BF0045AD43 /* ImageGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGradient.swift; sourceTree = "<group>"; };
 		019001092B8FA449006648CC /* FirebaseLessonsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLessonsManager.swift; sourceTree = "<group>"; };
 		0190010B2B8FA613006648CC /* AvailableSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableSubject.swift; sourceTree = "<group>"; };
 		0190010D2B8FC788006648CC /* FirebaseStoriesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStoriesManager.swift; sourceTree = "<group>"; };
@@ -150,6 +162,9 @@
 		01C271DC2B8E79F70053A209 /* SendUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserPresenter.swift; sourceTree = "<group>"; };
 		01C271DE2B8E8ACB0053A209 /* SignedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedUser.swift; sourceTree = "<group>"; };
 		01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		01E6F61D2B9349510081EE90 /* MissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCoordinator.swift; sourceTree = "<group>"; };
+		01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsViewController.swift; sourceTree = "<group>"; };
+		01E6F6232B9371490081EE90 /* MissionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +182,7 @@
 				0146F2D32B8E4E1F0056B669 /* FirebaseMLModelDownloader in Frameworks */,
 				0146F2C72B8E4E1F0056B669 /* FirebaseFirestoreSwift in Frameworks */,
 				0146F2EC2B8E5ECA0056B669 /* JGProgressHUD in Frameworks */,
+				017CD4692B9071220045AD43 /* PanModal in Frameworks */,
 				0146F2B32B8E4E1F0056B669 /* FirebaseAppCheck in Frameworks */,
 				0146F2B12B8E4E1F0056B669 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				0146F2B72B8E4E1F0056B669 /* FirebaseAuth in Frameworks */,
@@ -249,6 +265,7 @@
 			children = (
 				0146F2E12B8E50770056B669 /* LessonsPresenter.swift */,
 				017CD4632B90566F0045AD43 /* TasksPresenter.swift */,
+				017CD4732B92105E0045AD43 /* TaskDescriptionPresenter.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -354,6 +371,7 @@
 		0161AE0E2B8C4F36000DD7BB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				01E6F61A2B9347F00081EE90 /* Missions */,
 				0156EA182B900528000C205A /* Tasks */,
 				010079F22B8CAC1800F6F1E1 /* Profile */,
 				010079F12B8CAC1200F6F1E1 /* Gifts */,
@@ -449,8 +467,19 @@
 				0190010F2B8FC85C006648CC /* Story.swift */,
 				019001112B8FD4BC006648CC /* Section.swift */,
 				017CD4652B9058C70045AD43 /* Task.swift */,
+				017CD4752B9220730045AD43 /* TaskDescription.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		017CD4702B920FF10045AD43 /* TaskDescription */ = {
+			isa = PBXGroup;
+			children = (
+				017CD4712B9210100045AD43 /* TaskDescriptionViewController.swift */,
+				017CD4772B9232BF0045AD43 /* ImageGradient.swift */,
+			);
+			name = TaskDescription;
+			path = TaskDescription/TaskDescription;
 			sourceTree = "<group>";
 		};
 		01C271D72B8E6C920053A209 /* Authentification */ = {
@@ -469,6 +498,41 @@
 				01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		01E6F61A2B9347F00081EE90 /* Missions */ = {
+			isa = PBXGroup;
+			children = (
+				01E6F61F2B934FDD0081EE90 /* Missions */,
+				01E6F61B2B9348D70081EE90 /* MissionCoordinator */,
+				017CD4702B920FF10045AD43 /* TaskDescription */,
+			);
+			path = Missions;
+			sourceTree = "<group>";
+		};
+		01E6F61B2B9348D70081EE90 /* MissionCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				01E6F61D2B9349510081EE90 /* MissionCoordinator.swift */,
+			);
+			path = MissionCoordinator;
+			sourceTree = "<group>";
+		};
+		01E6F61F2B934FDD0081EE90 /* Missions */ = {
+			isa = PBXGroup;
+			children = (
+				01E6F6222B93713A0081EE90 /* cell */,
+				01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */,
+			);
+			path = Missions;
+			sourceTree = "<group>";
+		};
+		01E6F6222B93713A0081EE90 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				01E6F6232B9371490081EE90 /* MissionsTableViewCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,6 +582,7 @@
 				0146F2EB2B8E5ECA0056B669 /* JGProgressHUD */,
 				0146F2EE2B8E5EE20056B669 /* Toast */,
 				0146F2F32B8E62AA0056B669 /* Lottie */,
+				017CD4682B9071220045AD43 /* PanModal */,
 			);
 			productName = NuboKz;
 			productReference = 0161ADE92B8C4B4A000DD7BB /* NuboKz.app */;
@@ -552,6 +617,7 @@
 				0146F2EA2B8E5EC90056B669 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				0146F2ED2B8E5EE20056B669 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				0146F2F22B8E62AA0056B669 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				017CD4672B9071220045AD43 /* XCRemoteSwiftPackageReference "PanModal" */,
 			);
 			productRefGroup = 0161ADEA2B8C4B4A000DD7BB /* Products */;
 			projectDirPath = "";
@@ -586,15 +652,19 @@
 			files = (
 				0161AE2E2B8C60A5000DD7BB /* Fonts.swift in Sources */,
 				0161AE122B8C4F6C000DD7BB /* ConfirmEmailViewController.swift in Sources */,
+				01E6F6242B9371490081EE90 /* MissionsTableViewCell.swift in Sources */,
 				019001102B8FC85C006648CC /* Story.swift in Sources */,
 				019001122B8FD4BC006648CC /* Section.swift in Sources */,
+				017CD4722B9210100045AD43 /* TaskDescriptionViewController.swift in Sources */,
 				0190010A2B8FA449006648CC /* FirebaseLessonsManager.swift in Sources */,
 				0161AE022B8C4CF3000DD7BB /* AppCoordinator.swift in Sources */,
 				0190010E2B8FC788006648CC /* FirebaseStoriesManager.swift in Sources */,
 				0161AE232B8C5E3D000DD7BB /* AppGradient.swift in Sources */,
 				01C271DD2B8E79F70053A209 /* SendUserPresenter.swift in Sources */,
 				0146F2E22B8E50770056B669 /* LessonsPresenter.swift in Sources */,
+				017CD4782B9232BF0045AD43 /* ImageGradient.swift in Sources */,
 				0146F2E92B8E59B60056B669 /* NetworkError.swift in Sources */,
+				01E6F61E2B9349510081EE90 /* MissionCoordinator.swift in Sources */,
 				0161AE062B8C4D1A000DD7BB /* MainCoordinator.swift in Sources */,
 				0161ADF12B8C4B4A000DD7BB /* ViewController.swift in Sources */,
 				010079F82B8CAE8E00F6F1E1 /* ProfileViewController.swift in Sources */,
@@ -613,12 +683,15 @@
 				017CD4662B9058C70045AD43 /* Task.swift in Sources */,
 				0161AE0C2B8C4DB1000DD7BB /* Types.swift in Sources */,
 				0146F2E72B8E58220056B669 /* Subject.swift in Sources */,
+				017CD4742B92105E0045AD43 /* TaskDescriptionPresenter.swift in Sources */,
 				0156EA1C2B900625000C205A /* HomeModule.swift in Sources */,
 				010079F42B8CAC4D00F6F1E1 /* LessonsViewController.swift in Sources */,
 				010079F62B8CAE7500F6F1E1 /* GiftsViewController.swift in Sources */,
 				0161AE152B8C4FA3000DD7BB /* AuthModule.swift in Sources */,
 				0146F2E52B8E54B30056B669 /* FirebaseManager.swift in Sources */,
 				0161ADED2B8C4B4A000DD7BB /* AppDelegate.swift in Sources */,
+				017CD4762B9220730045AD43 /* TaskDescription.swift in Sources */,
+				01E6F6212B934FFB0081EE90 /* MissionsViewController.swift in Sources */,
 				010079ED2B8CA9F600F6F1E1 /* TabBarController.swift in Sources */,
 				0161AE042B8C4D00000DD7BB /* AuthentificationCoordinator.swift in Sources */,
 				01C271DF2B8E8ACB0053A209 /* SignedUser.swift in Sources */,
@@ -877,6 +950,14 @@
 				minimumVersion = 4.4.1;
 			};
 		};
+		017CD4672B9071220045AD43 /* XCRemoteSwiftPackageReference "PanModal" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/slackhq/PanModal.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.7;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1029,6 +1110,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0146F2F22B8E62AA0056B669 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		017CD4682B9071220045AD43 /* PanModal */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 017CD4672B9071220045AD43 /* XCRemoteSwiftPackageReference "PanModal" */;
+			productName = PanModal;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -13,6 +13,8 @@ class TasksTableViewCell: UITableViewCell {
     
     let colors: [String] = ["#abc4eb", "#cc98d6", "#b3e3a1", "#e3b596"]
     
+    var indexPath: IndexPath?
+    
     func randomInRange(min: Int, max: Int) -> Int {
         return Int.random(in: min...max)
     }
@@ -39,7 +41,7 @@ class TasksTableViewCell: UITableViewCell {
         item.translatesAutoresizingMaskIntoConstraints = false
         return item
     }()
-    
+
     let bonusView: UIStackView = {
         let bonusView = UIStackView()
         bonusView.backgroundColor = AppColors.lightSilver
@@ -50,6 +52,7 @@ class TasksTableViewCell: UITableViewCell {
         bonusView.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
         bonusView.translatesAutoresizingMaskIntoConstraints = false
         bonusView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        bonusView.isUserInteractionEnabled = true
         return bonusView
     }()
     
