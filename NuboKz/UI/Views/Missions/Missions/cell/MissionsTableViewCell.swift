@@ -9,6 +9,9 @@ import UIKit
 
 class MissionsTableViewCell: UITableViewCell {
     
+    var missionId: String?
+    var delegate: MissionsTappedDelegate?
+    
     var indexPath: IndexPath? {
         didSet {
             guard let indexPath = indexPath else { return }
@@ -37,7 +40,6 @@ class MissionsTableViewCell: UITableViewCell {
     
     let descriptionOfMission: UILabel = {
         let label = UILabel()
-        label.text = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
         label.font = Fonts.fontCreator(font: .medium, size: 14)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +52,7 @@ class MissionsTableViewCell: UITableViewCell {
         button.setTitleColor(AppColors.textGray, for: .normal)
         button.titleLabel?.font = Fonts.fontCreator(font: .bold, size: 12)
         button.backgroundColor = AppColors.lightSilver
+        button.addTarget(self, action: #selector(onTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -62,30 +65,34 @@ class MissionsTableViewCell: UITableViewCell {
         setupInterfaceItems()
     }
     
+    @objc private func onTap() {
+        self.delegate?.getTappedMission(indexPath: self.indexPath)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     private func setupInterfaceItems() {
-        addSubview(numberContainerOfMission)
-        addSubview(descriptionOfMission)
-        addSubview(performMissionButton)
+        contentView.addSubview(numberContainerOfMission)
+        contentView.addSubview(descriptionOfMission)
+        contentView.addSubview(performMissionButton)
         
         numberContainerOfMission.addSubview(numberLabelOfMission)
         
         NSLayoutConstraint.activate([
-            numberContainerOfMission.topAnchor.constraint(equalTo: topAnchor, constant: 12),
-            numberContainerOfMission.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
+            numberContainerOfMission.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            numberContainerOfMission.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             
             performMissionButton.heightAnchor.constraint(equalToConstant: 25),
             performMissionButton.widthAnchor.constraint(equalToConstant: 120),
-            performMissionButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
-            performMissionButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -12),
+            performMissionButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            performMissionButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
             
-            descriptionOfMission.topAnchor.constraint(equalTo: topAnchor, constant: 12),
+            descriptionOfMission.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             descriptionOfMission.leftAnchor.constraint(equalTo: numberContainerOfMission.rightAnchor, constant: 12),
             descriptionOfMission.bottomAnchor.constraint(equalTo: performMissionButton.topAnchor, constant: -12),
-            descriptionOfMission.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
+            descriptionOfMission.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -12),
             
             numberLabelOfMission.centerXAnchor.constraint(equalTo: numberContainerOfMission.centerXAnchor),
             numberLabelOfMission.centerYAnchor.constraint(equalTo: numberContainerOfMission.centerYAnchor)

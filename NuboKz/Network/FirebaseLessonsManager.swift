@@ -155,4 +155,43 @@ class FirebaseLessonsManager {
             }
         }
     }
+    
+    func getMissionsByTaskId(taskId: String?, completionHandler: @escaping (Result<[Mission], NetworkError>) -> ()) {
+        let collectionName = "missions"
+        let collectionRef = db.collection(collectionName)
+        
+        guard let taskId = taskId else { 
+            completionHandler(.failure(.incorrectData(text: "Ошибка при получений данных")))
+            return
+        }
+        
+        let query = collectionRef.order(by: "step", descending: true)
+        
+        query.whereField("task_id", isEqualTo: taskId).getDocuments { snapshot, error in
+            if error != nil {
+                completionHandler(.failure(.incorrectData(text: "Ошибка при получений данных")))
+                return
+            }
+            
+            var missions: [Mission] = []
+            
+            for document in snapshot!.documents {
+                let data = document.data()
+                
+                if let missionType = data["missionType"] as? Int,
+                   let missionId = data["mission_id"] as? String,
+                   let step = data["step"] as? Int,
+                   let text = data["text"] as? String
+                {
+                    if missionType == 1 {
+                        let testData = Mission.test(step: step, missionId: missionId, text: text)
+                        missions.append(testData)
+                    }
+                    
+                }
+            }
+            
+            completionHandler(.success(missions))
+        }
+    }
 }

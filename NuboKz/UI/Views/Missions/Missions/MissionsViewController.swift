@@ -7,10 +7,19 @@
 
 import UIKit
 
-class MissionsViewController: UITableViewController, MissionCoordinating {
+protocol MissionsTappedDelegate {
+    func getTappedMission(indexPath: IndexPath?)
+}
+
+class MissionsViewController: UITableViewController, MissionCoordinating, MissionPresenterView {
+    
     var finishFlow: boolClosure?
     var performEvent: performMissionCoordinatorEvents?
     var taskId: String?
+    
+    var allMissions: [Mission] = []
+    
+    var presenter: MissionPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +31,12 @@ class MissionsViewController: UITableViewController, MissionCoordinating {
         navigationController?.setNavigationBarHidden(false, animated: true)
         
         title = "Задачи"
+        
+        getMissions()
+    }
+    
+    func getMissions() {
+        self.presenter?.getMissionsByTaskId(taskId: self.taskId)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -32,9 +47,19 @@ class MissionsViewController: UITableViewController, MissionCoordinating {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListIds.missionsItem.getId(), for: indexPath) as! MissionsTableViewCell
         cell.indexPath = indexPath
+        cell.delegate = self
         
-//        cell.setupButtonTitle()
-        cell.blockPerformButton()
+        let mission = self.allMissions[indexPath.row]
+        
+        switch mission {
+        case .test(let step, let missionId, let text):
+            cell.setupButtonTitle()
+            cell.descriptionOfMission.text = text
+            cell.missionId = missionId
+        }
+        
+        
+//        cell.blockPerformButton()
         
         return cell
     }
@@ -44,7 +69,22 @@ class MissionsViewController: UITableViewController, MissionCoordinating {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.allMissions.count
     }
     
+    func setMissions(data: [Mission]) {
+        DispatchQueue.main.async {
+            self.allMissions = data
+            self.tableView.reloadData()
+        }
+    }
+    
+}
+
+extension MissionsViewController: MissionsTappedDelegate {
+    func getTappedMission(indexPath: IndexPath?) {
+        guard let indexPath = indexPath else { return }
+        
+    }
+
 }

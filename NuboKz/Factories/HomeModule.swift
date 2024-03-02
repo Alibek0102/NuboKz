@@ -23,4 +23,11 @@ class HomeModule {
         viewController.presenter = presenter
         return viewController
     }
+    
+    func missionsViewController() -> MissionsViewController {
+        let viewController = MissionsViewController()
+        let presenter = MissionPresenter(viewController: viewController)
+        viewController.presenter = presenter
+        return viewController
+    }
 }

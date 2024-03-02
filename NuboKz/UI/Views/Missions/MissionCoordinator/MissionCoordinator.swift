@@ -47,7 +47,8 @@ class MissionCoordinator: Coordinator {
     }
     
     func startMissionsViewController() {
-        let viewController = MissionsViewController()
+        let viewController = homeModule.missionsViewController()
+        viewController.taskId = self.taskId
         missionNavigationController.pushViewController(viewController, animated: true)
     }
     

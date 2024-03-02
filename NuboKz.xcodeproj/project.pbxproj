@@ -99,6 +99,8 @@
 		01E6F61E2B9349510081EE90 /* MissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F61D2B9349510081EE90 /* MissionCoordinator.swift */; };
 		01E6F6212B934FFB0081EE90 /* MissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */; };
 		01E6F6242B9371490081EE90 /* MissionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6232B9371490081EE90 /* MissionsTableViewCell.swift */; };
+		01E6F6262B9382440081EE90 /* MissionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6252B9382440081EE90 /* MissionPresenter.swift */; };
+		01E6F6282B938ADF0081EE90 /* Mission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6272B938ADF0081EE90 /* Mission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +167,8 @@
 		01E6F61D2B9349510081EE90 /* MissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCoordinator.swift; sourceTree = "<group>"; };
 		01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsViewController.swift; sourceTree = "<group>"; };
 		01E6F6232B9371490081EE90 /* MissionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsTableViewCell.swift; sourceTree = "<group>"; };
+		01E6F6252B9382440081EE90 /* MissionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionPresenter.swift; sourceTree = "<group>"; };
+		01E6F6272B938ADF0081EE90 /* Mission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mission.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,7 @@
 				0146F2E12B8E50770056B669 /* LessonsPresenter.swift */,
 				017CD4632B90566F0045AD43 /* TasksPresenter.swift */,
 				017CD4732B92105E0045AD43 /* TaskDescriptionPresenter.swift */,
+				01E6F6252B9382440081EE90 /* MissionPresenter.swift */,
 			);
 			path = Lessons;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				019001112B8FD4BC006648CC /* Section.swift */,
 				017CD4652B9058C70045AD43 /* Task.swift */,
 				017CD4752B9220730045AD43 /* TaskDescription.swift */,
+				01E6F6272B938ADF0081EE90 /* Mission.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -676,6 +682,7 @@
 				01C271D92B8E6CAA0053A209 /* EmailPresenter.swift in Sources */,
 				010079EF2B8CAA1F00F6F1E1 /* TabBarModule.swift in Sources */,
 				0146F2A52B8E40B70056B669 /* LessonsTableViewCell.swift in Sources */,
+				01E6F6282B938ADF0081EE90 /* Mission.swift in Sources */,
 				0146F2A32B8D8BF60056B669 /* LessonsCollectionViewCell.swift in Sources */,
 				0156EA1A2B900541000C205A /* TasksViewController.swift in Sources */,
 				0161AE352B8C6551000DD7BB /* PasswordTextField.swift in Sources */,
@@ -696,6 +703,7 @@
 				0161AE042B8C4D00000DD7BB /* AuthentificationCoordinator.swift in Sources */,
 				01C271DF2B8E8ACB0053A209 /* SignedUser.swift in Sources */,
 				0161AE1A2B8C51E2000DD7BB /* UIColor+extension.swift in Sources */,
+				01E6F6262B9382440081EE90 /* MissionPresenter.swift in Sources */,
 				0161AE1F2B8C539B000DD7BB /* EmailTextField.swift in Sources */,
 				01C271E22B8E8C960053A209 /* UserDefaultsManager.swift in Sources */,
 				0161AE1C2B8C520D000DD7BB /* AppColors.swift in Sources */,
