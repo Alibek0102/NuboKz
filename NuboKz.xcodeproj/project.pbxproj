@@ -96,6 +96,7 @@
 		01C271DD2B8E79F70053A209 /* SendUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271DC2B8E79F70053A209 /* SendUserPresenter.swift */; };
 		01C271DF2B8E8ACB0053A209 /* SignedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271DE2B8E8ACB0053A209 /* SignedUser.swift */; };
 		01C271E22B8E8C960053A209 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */; };
+		01CE0ABA2B944EDE0086D3A2 /* MissionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CE0AB92B944EDE0086D3A2 /* MissionInfoViewController.swift */; };
 		01E6F61E2B9349510081EE90 /* MissionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F61D2B9349510081EE90 /* MissionCoordinator.swift */; };
 		01E6F6212B934FFB0081EE90 /* MissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */; };
 		01E6F6242B9371490081EE90 /* MissionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6F6232B9371490081EE90 /* MissionsTableViewCell.swift */; };
@@ -164,6 +165,7 @@
 		01C271DC2B8E79F70053A209 /* SendUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendUserPresenter.swift; sourceTree = "<group>"; };
 		01C271DE2B8E8ACB0053A209 /* SignedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedUser.swift; sourceTree = "<group>"; };
 		01C271E12B8E8C960053A209 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		01CE0AB92B944EDE0086D3A2 /* MissionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionInfoViewController.swift; sourceTree = "<group>"; };
 		01E6F61D2B9349510081EE90 /* MissionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionCoordinator.swift; sourceTree = "<group>"; };
 		01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsViewController.swift; sourceTree = "<group>"; };
 		01E6F6232B9371490081EE90 /* MissionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionsTableViewCell.swift; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 			children = (
 				01E6F6222B93713A0081EE90 /* cell */,
 				01E6F6202B934FFB0081EE90 /* MissionsViewController.swift */,
+				01CE0AB92B944EDE0086D3A2 /* MissionInfoViewController.swift */,
 			);
 			path = Missions;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				01C271E22B8E8C960053A209 /* UserDefaultsManager.swift in Sources */,
 				0161AE1C2B8C520D000DD7BB /* AppColors.swift in Sources */,
 				0190010C2B8FA613006648CC /* AvailableSubject.swift in Sources */,
+				01CE0ABA2B944EDE0086D3A2 /* MissionInfoViewController.swift in Sources */,
 				0146F2A02B8D87220056B669 /* ListIds.swift in Sources */,
 				0161ADEF2B8C4B4A000DD7BB /* SceneDelegate.swift in Sources */,
 				0161AE0A2B8C4D54000DD7BB /* Coordinator.swift in Sources */,

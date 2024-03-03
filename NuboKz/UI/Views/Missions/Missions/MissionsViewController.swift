@@ -85,6 +85,20 @@ extension MissionsViewController: MissionsTappedDelegate {
     func getTappedMission(indexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
         
+        let sendMission = allMissions[indexPath.row]
+        
+        let viewController = MissionInfoViewController()
+        viewController.modalPresentationStyle = .overCurrentContext
+        
+        viewController.mission = sendMission
+        
+        viewController.startFlow = { result in
+            if result == true {
+                print("start task")
+            }
+        }
+        
+        present(viewController, animated: true)
     }
 
 }
