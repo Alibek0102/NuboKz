@@ -11,6 +11,7 @@ enum ListIds: String {
     case stories = "storiesListId"
     case lessonItem = "lessonItem"
     case missionsItem = "missionsItem"
+    case testId = "testId"
     
     func getId() -> String{
         return self.rawValue

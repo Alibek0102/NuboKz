@@ -9,7 +9,7 @@ import UIKit
 
 class MissionInfoViewController: UIViewController {
     
-    var startFlow: boolClosure?
+    var startFlow: ((Int, String) -> ())?
     
     var mission: Mission? {
         didSet {
@@ -64,7 +64,12 @@ class MissionInfoViewController: UIViewController {
     }
     
     @objc func startTask() {
-        startFlow?(true)
+        switch mission {
+        case .test(_, let missionId, _):
+            self.startFlow?(1, missionId)
+        case nil:
+            print("not tapped")
+        }
         dismiss(animated: true)
     }
     

@@ -49,6 +49,15 @@ class MissionCoordinator: Coordinator {
     func startMissionsViewController() {
         let viewController = homeModule.missionsViewController()
         viewController.taskId = self.taskId
+        viewController.startTestFlow = { missionid in
+            self.startTestViewController(missionId: missionid)
+        }
+        missionNavigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func startTestViewController(missionId: String?) {
+        let viewController = homeModule.testViewController()
+        viewController.missionId = missionId
         missionNavigationController.pushViewController(viewController, animated: true)
     }
     

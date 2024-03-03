@@ -30,4 +30,9 @@ class HomeModule {
         viewController.presenter = presenter
         return viewController
     }
+    
+    func testViewController() -> TestViewController {
+        let viewController = TestViewController()
+        return viewController
+    }
 }

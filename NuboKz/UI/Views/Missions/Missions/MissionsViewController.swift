@@ -17,6 +17,8 @@ class MissionsViewController: UITableViewController, MissionCoordinating, Missio
     var performEvent: performMissionCoordinatorEvents?
     var taskId: String?
     
+    var startTestFlow: stringClosure?
+    
     var allMissions: [Mission] = []
     
     var presenter: MissionPresenterProtocol?
@@ -92,9 +94,12 @@ extension MissionsViewController: MissionsTappedDelegate {
         
         viewController.mission = sendMission
         
-        viewController.startFlow = { result in
-            if result == true {
-                print("start task")
+        viewController.startFlow = { result, missionId in
+            switch result {
+            case 1:
+                self.startTestFlow?(missionId)
+            default:
+                print("not started")
             }
         }
         
